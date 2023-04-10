@@ -10,7 +10,7 @@ const Product = () => {
 
   useEffect(() => {
     dispatch(getProduct(id))
-  }, [dispatch])
+  }, [dispatch, id])
 
   return (
     <>

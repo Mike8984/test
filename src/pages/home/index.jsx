@@ -17,13 +17,16 @@ const Home = () => {
       {isLoading ? (
         <div>Loading..</div>
       ) : (
-        <div style={{ padding: 20 }}>
+        <div>
+          <div style={{ padding: 20 }}>
           {products.map(product => (
             <Link to={`/products/${product.id}`} key={product.id}>
               <ProductItem product={product} />
             </Link>
           ))}
         </div>
+        </div>
+        
       )}
     </>
   )

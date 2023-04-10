@@ -10,3 +10,7 @@
   padding: 10px;
 }
 
+.header__inner {
+  display: flex;
+  justify-content: space-between;
+}
