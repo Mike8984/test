@@ -19,20 +19,21 @@ export const productsSlice = createSlice({
   name: 'products',
   initialState,
   reducers: {},
-  extraReducers: {
-    [getProducts.pending]: state => {
-      state.isLoading = true
-      state.error = null
-    },
-    [getProducts.fulfilled]: (state, action) => {
-      state.isLoading = false
-      state.products = action.payload
-      state.error = null
-    },
-    [getProducts.rejected]: (state, action) => {
-      state.isLoading = false
-      state.error = action.payload
-    },
+  extraReducers: builder => {
+    builder
+      .addCase(getProducts.pending, state => {
+        state.isLoading = true
+        state.error = null
+      })
+      .addCase(getProducts.fulfilled, (state, action) => {
+        state.isLoading = false
+        state.products = action.payload
+        state.error = null
+      })
+      .addCase(getProducts.rejected, (state, action) => {
+        state.isLoading = false
+        state.error = action.payload
+      })
   },
 })
 

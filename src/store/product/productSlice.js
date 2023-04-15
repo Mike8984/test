@@ -14,17 +14,20 @@ export const productSlice = createSlice({
   name: 'product',
   initialState,
   reducers: {},
-  extraReducers: {
-    [getProduct.pending]: state => {
-      state.product = null
-    },
-    [getProduct.fulfilled]: (state, action) => {
-      state.product = action.payload
-    },
-    [getProduct.rejected]: state => {
-      state.product = null
-    },
+  extraReducers: builder => {
+    builder
+      .addCase(getProduct.pending, state => {
+        state.product = null
+      })
+      .addCase(getProduct.fulfilled, (state, action) => {
+        state.product = action.payload
+      })
+      .addCase(getProduct.rejected, state => {
+        state.product = null
+      })
   },
 })
+
+
 
 export default productSlice.reducer
